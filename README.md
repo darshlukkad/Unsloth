@@ -9,13 +9,33 @@ All explanation and walkthrough videos for the notebooks are available in this G
 
 https://drive.google.com/drive/folders/1nFFbjTyXh3QrfVGRulyhMrFCjX-x3hxN?usp=sharing
 
-Notebooks included
-------------------
+Notebooks included (short overview)
+----------------------------------
 
-- `colab_2_lora_smollm2.ipynb` — LoRA fine-tuning examples for SmolLM2.
-- `colab3_dpo_pref.ipynb` — DPO / preference-learning experiments.
-- `colab4_grpo.ipynb` — Full GRPO training demo (includes building rewards, training LoRA adapters, merging and exporting to GGUF).
-- `colab_5.ipynb` and `Colab_Full_finetune(SmolLM2_135M).ipynb` — additional demos and full-finetuning examples.
+- `colab_2_lora_smollm2.ipynb`
+	- Purpose: Demonstrates LoRA-based fine-tuning on the SmolLM2 family. Shows how to attach LoRA adapters, set hyperparameters, and run a short fine-tune loop.
+	- Highlights: low-VRAM 4-bit loading, attaching/saving LoRA adapters, tokenizer safety, simple evaluation of generated outputs.
+	- Run when: you want a compact example of adapter-only training and to learn how to save/reload adapters.
+
+- `colab3_dpo_pref.ipynb`
+	- Purpose: Demonstrates DPO (Direct Preference Optimization) / preference-learning workflows on small preference datasets.
+	- Highlights: preparing pairwise preference data, training with a preference loss, evaluating preference accuracy, and logging results.
+	- Run when: exploring preference learning or when you have pairwise preference labels for RLHF-style experiments.
+
+- `colab4_grpo.ipynb`
+	- Purpose: Full GRPO (Generative Reward Policy Optimization) training demo using LoRA adapters and a small GSM8K slice as the task.
+	- Highlights: stable package setup (Unsloth first), building custom reward functions (correctness + format), GRPO config and trainer usage, saving LoRA adapters, merging adapters into a single model, and exporting to GGUF for Ollama.
+	- Run when: you want to train a reward-optimized policy with minimal VRAM via LoRA + 4-bit quantization. See the dedicated quick overview below for more detail.
+
+- `colab_5.ipynb`
+	- Purpose: Misc demos and utilities (varies; worksheet for additional experiments).
+	- Highlights: helper utilities, small evaluation scripts, and extra experiments that complement the other notebooks.
+	- Run when: you want additional examples or helper snippets used across the main notebooks.
+
+- `Colab_Full_finetune(SmolLM2_135M).ipynb`
+	- Purpose: Example of full fine-tuning (non-adapter) for SmolLM2-135M when you have enough resources.
+	- Highlights: full-model training flow, larger memory/compute requirements, and tips for exporting trained weights.
+	- Run when: you have sufficient GPU memory and want to experiment with full fine-tuning instead of adapter-only methods.
 
 Quick overview of `colab4_grpo.ipynb`
 ----------------------------------
